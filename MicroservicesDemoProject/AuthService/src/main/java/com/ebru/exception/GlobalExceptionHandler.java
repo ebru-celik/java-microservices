@@ -16,20 +16,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Tüm controller sınıfları için merkezi bir şekilde hata yönetimi sağlayan anotasyondur.
+ * It is an annotation that provides centralized error management for all controller classes.
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<String> handleRuntimeException(RuntimeException ex) {
-        return ResponseEntity.badRequest().body("beklenmeyen bir hata olustu: " + ex.getMessage());
+        return ResponseEntity.badRequest().body("An unexpected error occurred: " + ex.getMessage());
     }
 
 
     /**
-     * ExceptionHandler: Uygulama içinde oluşacak hatanın türünü verdiğimiz şekilde yakalanmasını sağlar.
-     * ResponseBody: Dönüş tipimizin formatının Json olmasını sağlar.
+     * ExceptionHandler: It ensures that the type of error that will occur within the application is captured as specified.
+     * ResponseBody: It ensures that the format of our return type is Json.
      *
      * @return
      */
@@ -52,7 +52,7 @@ public class GlobalExceptionHandler {
     }
 
     private ErrorMessage createErrorMesaj(ErrorType errorType, Exception exception) {
-        System.out.println("Hata oluştu...." + exception.getMessage());
+        System.out.println("An error occurred...." + exception.getMessage());
         return ErrorMessage.builder()
                 .code(errorType.getCode())
                 .message(errorType.getMessage())
@@ -60,7 +60,7 @@ public class GlobalExceptionHandler {
     }
 
     private ErrorMessage createError(ErrorType errorType, Exception ex) {
-        System.out.println("Hata olustu: " + ex.getMessage());
+        System.out.println("An error occurred: " + ex.getMessage());
         return ErrorMessage.builder()
                 .code(errorType.getCode())
                 .message(errorType.getMessage())
