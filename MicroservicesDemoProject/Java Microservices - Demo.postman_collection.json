@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "3261f85a-9547-4d85-bfa1-6facada9a68e",
+		"name": "Java Microservices - Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32317453"
+	},
+	"item": [
+		{
+			"name": "ServiceA",
+			"item": [
+				{
+					"name": "SubServiceA hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubServiceA info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ServiceB",
+			"item": [
+				{
+					"name": "SubServiceB hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubServiceB info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9092/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9092",
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ServiceC",
+			"item": [
+				{
+					"name": "SubServiceC hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9093",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9093"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubServiceC info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9093/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9093",
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"ebru\",\r\n  \"email\": \"ebru@gmail.com\",\r\n  \"password\": \"12345\",\r\n  \"repassword\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"ebru\",\r\n  \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getall",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/auth/getall",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"auth",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getall_jwt",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywicHJvamVjdE5hbWUiOiJBdXRoU2VydmljZSIsImxhc3RKb2luIjoxNzA2NDcwMzUwNjIyLCJpc3MiOiJhYmMtZGVmIiwiaWF0IjoxNzA2NDcwMzUwLCJleHAiOjE3MDY0NzA2NTB9.d07c4c73XPVrFziSKlIvw9fScmgeE0a3FPvPrMzyrKHJuQTuJlYxJT0zsHKz4MyrrAcF6t7AP7UATAyArbu_Gw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/auth/getall1?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywicHJvamVjdE5hbWUiOiJBdXRoU2VydmljZSIsImxhc3RKb2luIjoxNzA2NDczMTczODc1LCJpc3MiOiJhYmMtZGVmIiwiaWF0IjoxNzA2NDczMTczLCJleHAiOjE3MDY0NzM0NzN9.wjv2d-E_Ep0DZFQ6Ntt421laHJt2KoLxQJfYoW_tHxHhD2VYrGHLfMsb_Dux7dammlBRkS8Q7agvwqhT-VRk0A",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"auth",
+								"getall1"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywicHJvamVjdE5hbWUiOiJBdXRoU2VydmljZSIsImxhc3RKb2luIjoxNzA2NDczMTczODc1LCJpc3MiOiJhYmMtZGVmIiwiaWF0IjoxNzA2NDczMTczLCJleHAiOjE3MDY0NzM0NzN9.wjv2d-E_Ep0DZFQ6Ntt421laHJt2KoLxQJfYoW_tHxHhD2VYrGHLfMsb_Dux7dammlBRkS8Q7agvwqhT-VRk0A"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
