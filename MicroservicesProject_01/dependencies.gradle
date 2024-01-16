@@ -1,0 +1,42 @@
+ext {
+    /**
+     * Versioning dependencies:
+     */
+    versions = [
+            springBoot          : "3.2.2",
+            lombok              : "1.18.28",
+            mapStruct           : "1.5.5.Final",
+            postgreSql          : "42.7.1",
+            swaggerApi          : "2.3.0",
+            jwt                 : "4.4.0",
+            mySql               : "8.2.0",
+            springCloud         : "4.1.0"
+    ]
+
+    /**
+     * In this section we will create the dependency list. K:V
+     * 1. set a name for the dependency
+     * 2. colon(:)
+     * 3. Type the group id of the project.
+     * 4. colon(:)
+     * 5. Type the artifact id of the project.
+     * 6. colon(:)
+     * 7. Call the version number or the key value we specified above.
+     */
+    libs = [
+            springBootWeb                   : "org.springframework.boot:spring-boot-starter-web:$versions.springBoot",
+            springBootDataJpa               : "org.springframework.boot:spring-boot-starter-data-jpa:$versions.springBoot",
+
+            springCloudOpenFeign            : "org.springframework.cloud:spring-cloud-starter-openfeign:$versions.springCloud",
+
+            postgreSql                      : "org.postgresql:postgresql:$versions.postgreSql",
+            mySql                           : "com.mysql:mysql-connector-j:$versions.mySql",
+
+            lombok                          : "org.projectlombok:lombok:$versions.lombok",
+            mapStruct                       : "org.mapstruct:mapstruct:$versions.mapStruct",
+            mapStructProcessor              : "org.mapstruct:mapstruct-processor:$versions.mapStruct",
+            swaggerApi                      : "org.springdoc:springdoc-openapi-starter-webmvc-ui:$versions.swaggerApi",
+            jwt                             : "com.auth0:java-jwt:$versions.jwt",
+
+    ]
+}
