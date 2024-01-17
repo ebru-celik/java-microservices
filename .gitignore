@@ -38,3 +38,5 @@ build/
 ### Mac OS ###
 .DS_Store
 /.metadata/
+
+MicroservicesProject_01/my_environment.bat
