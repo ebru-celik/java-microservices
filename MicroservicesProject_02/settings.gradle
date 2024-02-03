@@ -1,0 +1,10 @@
+rootProject.name = 'MicroservicesDemoProject'
+include 'AuthService'
+include 'UserProfileService'
+include 'AgentService'
+include 'BuyerService'
+include 'BuyerService'
+include 'SellerService'
+include 'PropertyService'
+include 'ConfigServerLocal'
+
