@@ -1,30 +1,13 @@
-# Getting Started
+# Spring Cloud OpenFeign
 
-### Reference Documentation
+In our Spring Projects, we will look at using Feign Client, where we can easily establish and manage communication between our services.
 
-For further reference, please consider the following sections:
+We can ensure communication between our services using RestTemplate, which we can call the classical method. Using the communication method with RestTemplate, we make our methods dependent by using the relevant API request within our methods.
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.2.2/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.2/gradle-plugin/reference/html/#build-image)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/3.2.2/reference/htmlsingle/index.html#data.sql.jpa-and-spring-data)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/3.2.2/reference/htmlsingle/index.html#using.devtools)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.2.2/reference/htmlsingle/index.html#web)
-* [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/3.2.2/reference/htmlsingle/index.html#actuator)
+By using OpenFeign, we manage service communication through interface templates and enable us to use it in a more readable and configurational manner.
 
-### Guides
+In our application, communication will occur between the following services with OpenFeign.
+### AuthService
+### UserProfileService
 
-The following guides illustrate how to use some features concretely:
-
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
-
-### Additional Links
-
-These additional references should also help you:
-
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
-
+After the registered person completes their authentication, the UserProfileService will be notified and person will be added to the user database.
