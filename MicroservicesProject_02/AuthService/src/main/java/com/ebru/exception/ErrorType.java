@@ -12,8 +12,8 @@ import static org.springframework.http.HttpStatus.*;
 @Getter
 public enum ErrorType {
 
-    ABC_BULUNAMADI(1003,"The ABC you are looking for is not registered in the system", NOT_FOUND),
-    ABC_EKLEME_HATASI(2001,"ABC insertion failed", INTERNAL_SERVER_ERROR),
+    ABC_NOTFOUND(1003,"The ABC you are looking for is not registered in the system", NOT_FOUND),
+    ABC_ADD_ERROR(2001,"ABC insertion failed", INTERNAL_SERVER_ERROR),
     INVALID_PARAMETER(3001,"You entered invalid parameters", HttpStatus.BAD_REQUEST),
 
     REGISTER_PASSWORD_MISMATCH(1004,"The entered passwords did not match.",HttpStatus.BAD_REQUEST),

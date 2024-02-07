@@ -26,14 +26,6 @@ public class AuthController {
         this.authService = authService;
     }
 
-    //  Alternative: injection with lombok - @RequiredArgsConstructor
-   // private final AuthService authService;
-
-  /*  @PostMapping(EndPoint.REGISTER)
-    public ResponseEntity<Auth> doRegister(@RequestBody DoRegisterRequestDto dto){
-        return ResponseEntity.ok(authService.doRegister(dto));
-    }
-   */
     //http://localhost:9090/auth/register
     @PostMapping(EndPoint.REGISTER)
     public ResponseEntity<DoRegisterResponseDto> doRegister(@RequestBody DoRegisterRequestDto dto){

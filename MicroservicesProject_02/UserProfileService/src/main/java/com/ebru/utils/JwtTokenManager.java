@@ -1,5 +1,6 @@
 package com.ebru.utils;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -13,80 +14,66 @@ import java.util.Optional;
 @Component
 public class JwtTokenManager {
     /*
-    String secretKey = "123";
-    String issuer = "abc";
-    Long exDate = 1000L*60 * 5; // 5 dakika
-    */
-
-    // "123"
+     String secretKey = "123";
+     String issuer = "abc";
+     Long exDate = 1000L*60*5; // 5 min
+     */
     @Value("${auth-service.secret.key}")
     String secretKey;
-
-    // "abc"
     @Value("${auth-service.issuer}")
     String issuer;
-
-    // 1000L*60 * 5; // 5 dakika
     @Value("${auth-service.expire.date}")
-    Long expireDate;
+    Long exDate; // 5 min
 
-
-    // 1. adım: token üret
-    public Optional<String> createToken(Long id){
+    // 1- generate Token
+    public Optional<String> generateToken(Long id){
         String token = "";
         try {
             token = JWT.create().withAudience()
                     .withClaim("id", id)
-                    .withClaim("serviceName", "AuthService")
+                    .withClaim("projectName","AuthService")
                     .withClaim("lastJoin", System.currentTimeMillis())
-                    .withIssuer(issuer) // jwt tokeni olusturan yapi
-                    .withIssuedAt(new Date() ) // jwt olusturulma zamani
-                    .withExpiresAt(new Date(System.currentTimeMillis() + expireDate ))
+                    .withIssuer(issuer) // the structure that forms the jwt token
+                    .withIssuedAt(new Date()) // jwt creation time
+                    .withExpiresAt(new Date(System.currentTimeMillis() + exDate))
                     .sign(Algorithm.HMAC512(secretKey));
-            return  Optional.of(token);
-        } catch (Exception e){
+            return Optional.of(token);
+        }catch (Exception e){
             return Optional.empty();
         }
     }
-
-    // 2. adım: token doğrulama yap
+    // 2- verify Token
     public Boolean verifyToken(String token){
-        try {
-            Algorithm  algorithm =  Algorithm.HMAC512(secretKey);
+        try{
+            Algorithm algorithm = Algorithm.HMAC512(secretKey);
             JWTVerifier verifier = JWT.require(algorithm).withIssuer(issuer).build();
             DecodedJWT decodedJWT = verifier.verify(token);
-
             if(decodedJWT == null)
-                return false;
-
-        } catch (Exception e){
+                return  false;
+        }catch (Exception e){
             return false;
         }
         return true;
     }
-
-    // 3. token içinden bilgiyi çöz ve çıkar.
-    public Optional<Long> getIdInfoFromToken(String token){
-
-        try {
-            Algorithm  algorithm =  Algorithm.HMAC512(secretKey);
+    // 3- decode Id information in the token
+    public Optional<Long> decodeIdFromToken(String token){
+        try{
+            Algorithm algorithm = Algorithm.HMAC512(secretKey);
             JWTVerifier verifier = JWT.require(algorithm).withIssuer(issuer).build();
             DecodedJWT decodedJWT = verifier.verify(token);
-
             if(decodedJWT == null)
-                return Optional.empty();
+                return  Optional.empty();
 
             Long id = decodedJWT.getClaim("id").asLong();
-            System.out.println("Tokendaki id değeri: "  +  id);
+            System.out.println("Token_ID: "  +  id);
 
             String serviceName = decodedJWT.getClaim("serviceName").asString();
-            System.out.println("Tokendaki serviceName : "  +  serviceName);
+            System.out.println("Token_SERVICENAME "  +  serviceName);
 
             return Optional.of(id);
 
-        } catch (Exception e){
+        }catch (Exception e){
             return Optional.empty();
         }
     }
-
 }

@@ -21,6 +21,7 @@ import static com.ebru.constant.EndPoint.AUTH;
 @RequestMapping(AUTH)
 public class AuthController {
 
+    // injektion
     private final AuthService authService;
     public AuthController(AuthService authService){
         this.authService = authService;
