@@ -40,8 +40,8 @@ build/
 .DS_Store
 /.metadata/
 
-/my_environment.bat
-
 MicroservicesProject_01/my_environment.bat
 
 MicroservicesProject_02/my_environment.bat
+
+MicroservicesProject_03/my_environment.bat
