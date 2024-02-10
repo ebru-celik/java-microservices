@@ -2,7 +2,7 @@
 server:
   port: ${AUTH_SERVER_PORT}
 
-##### data postgresql #####
+##### data database #####
 spring:
   datasource:
     url: jdbc:${AUTH_DB_PROTOCOL}://${AUTH_DB_IP}:${AUTH_DB_PORT}/${AUTH_DB_NAME}   # database URL

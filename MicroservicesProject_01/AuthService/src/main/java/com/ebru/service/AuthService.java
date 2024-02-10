@@ -36,7 +36,7 @@ public class AuthService extends ServiceManager<Auth, Long> {
         System.out.println("DoRegisterRequestDto: " +  dto);
 
 
-        // parola kontrolleri yapiliyor
+        // password control
         if (!dto.getPassword().equals(dto.getRepassword()))
             throw new AuthServiceException(ErrorType.REGISTER_PASSWORD_MISMATCH);
 
@@ -63,20 +63,20 @@ public class AuthService extends ServiceManager<Auth, Long> {
         */
 
         Auth auth = IAuthMapper.INSTANCE.toAuth(dto);
-
         // auth.setCreateAt(System.currentTimeMillis());
         // auth.setState(true);
         save(auth); // KAYIT
 
 
-/*        // Baska bir servisi cagiriyoruz
+/*        // calling other service
         userProfileManager.save(UserProfileSaveRequestDto.builder()
                 .authId(auth.getId())
                 .username(auth.getUsername())
                 .email(auth.getEmail())
                 .build());
 */
-        // Baska bir servisi mapper ile cagiriyoruz.
+        // calling other service with Mapper Interface
+        //managing service communucation
         userProfileManager.save(IAuthMapper.INSTANCE.toDto(auth));
 
         System.out.println("auth: " +  auth);
