@@ -1,0 +1,26 @@
+##### port #####
+server:
+  port: 9092
+
+##### database #####
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/agentservicedb   # MySQL database url
+    username: root                                    # MySQL username
+    password: 123456789                                  # MySQL password
+    driver-class-name: com.mysql.cj.jdbc.Driver           # MySQL JDBC driver
+
+  #    url: jdbc:postgresql://localhost:5432/Micro_AgentServiceDB   # PostgreSQL database URL
+  #    username: postgres                                    # PostgreSQL username
+  #    password: 123456789                                  # PostgreSQL password
+  #    driver-class-name: org.postgresql.Driver             # PostgreSQL JDBC driver
+  jpa:
+    hibernate:
+      ddl-auto: update                                 # automatic update database schema
+    show-sql: true
+
+##### swagger-ui path #####
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
