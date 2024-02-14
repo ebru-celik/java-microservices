@@ -1,0 +1,24 @@
+server:
+  port: 9091
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/UserProfileServiceDB
+    username: postgres
+    password: 123456789
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update                                  # automatic update database schema
+    show-sql: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+auth-service:
+  secret:
+    key: ${AUTH_SECRET_KEY}
+  issuer: ${AUTH_ISSUER}
+  expire:
+    date: 300000

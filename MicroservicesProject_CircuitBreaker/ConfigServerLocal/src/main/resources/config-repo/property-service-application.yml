@@ -1,0 +1,17 @@
+server:
+  port: 9094
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/PropertyServiceDB
+    username: postgres
+    password: 123456789
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update             # automatic update database schema
+    show-sql: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
