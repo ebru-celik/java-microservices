@@ -1,0 +1,39 @@
+server:
+  port: 9091
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: user
+  zipkin:
+    enabled: true
+    base-url: http://localhost:9411/
+    service:
+      name: user-profile-service
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1
+  datasource:
+    url: jdbc:postgresql://localhost:5432/UserProfileServiceDB
+    username: postgres
+    password: 123456789
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update                                  # automatic update database schema
+    show-sql: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+auth-service:
+  secret:
+    key: ${AUTH_SECRET_KEY}
+  issuer: ${AUTH_ISSUER}
+  expire:
+    date: 300000

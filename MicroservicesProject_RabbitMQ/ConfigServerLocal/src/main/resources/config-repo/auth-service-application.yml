@@ -1,0 +1,45 @@
+##### port #####
+server:
+  port: ${AUTH_SERVER_PORT}
+
+##### data database #####
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: user
+  zipkin:
+    enabled: true
+    base-url: http://localhost:9411/
+    service:
+      name: auth-service
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1.0
+  datasource:
+    url: jdbc:${AUTH_DB_PROTOCOL}://${AUTH_DB_IP}:${AUTH_DB_PORT}/${AUTH_DB_NAME}   # database URL
+    username: ${AUTH_DB_USERNAME}                                                   # database username
+    password: ${AUTH_DB_PASSWORD}                                                   # database password
+    driver-class-name: ${AUTH_DB_DRIVER}                                            # database driver
+  jpa:
+    hibernate:
+      ddl-auto: update            # automatic update database schema
+    show-sql: true
+
+##### swagger-ui path #####
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+
+##### 1000L * 60 * 5 minutes
+auth-service:
+  secret:
+    key: ${AUTH_SECRET_KEY}
+  issuer: ${AUTH_ISSUER}
+  expire:
+    date: 300000
+
