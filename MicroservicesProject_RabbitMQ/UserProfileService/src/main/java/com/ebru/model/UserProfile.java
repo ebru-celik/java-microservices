@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-@SuperBuilder // bir siniftan nesne turetmek icin
-@Data // set get metotlarini otomatik tanimlar
-@NoArgsConstructor // bos paramereli hazirlayici yapici metodu olusturur
-@AllArgsConstructor // dolu paramereli hazirlayici yapici metodu olusturur
-@ToString // nesne bilgisini termianlde yazdirmak icin
+@SuperBuilder 
+@Data 
+@NoArgsConstructor 
+@AllArgsConstructor 
+@ToString 
 
 @Entity
 @Table (name = "user_profile")
