@@ -9,11 +9,11 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 
-@MappedSuperclass // ust sinif icin kullanilir
-@SuperBuilder // bir siniftan nesne turetmek icin
-@Data // set get metotlarini otomatik tanimlar
-@NoArgsConstructor // bos paramereli hazirlayici yapici metodu olusturur
-@AllArgsConstructor // dolu paramereli hazirlayici yapici metodu olusturur
+@MappedSuperclass
+@SuperBuilder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class BaseEntity {
 
     @CreatedDate
